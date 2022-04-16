@@ -1,3 +1,3 @@
 #!/bin/bash
-docker build . -t niklasarnitz/churchtools-organigram
+docker build . --no-cache -t niklasarnitz/churchtools-organigram:latest
 docker push niklasarnitz/churchtools-organigram:latest
