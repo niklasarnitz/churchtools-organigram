@@ -1,0 +1,17 @@
+{
+    "name": "churchtools-organigram",
+    "version": "0.0.1",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "Niklas Arnitz <niklas@arnitz.email>",
+    "license": "MIT",
+    "dependencies": {
+        "@churchtools/churchtools-client": "^1.1.4",
+        "axios-cookiejar-support": "^1.0.0",
+        "dotenv": "^16.0.0",
+        "tough-cookie": "^4.0.0"
+    }
+}
