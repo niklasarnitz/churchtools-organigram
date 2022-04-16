@@ -1,0 +1,9 @@
+*.graphml
+*.pdf
+.env
+*/.env
+app/node_modules
+app/output/*
+app/package-lock.json
+nodejs_code/node_modules/
+output/*
