@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   app:
-    image: 'churchtools-organigram'
+    image: 'niklasarnitz/churchtools-organigram'
     env_file: .env
     volumes:
       - ./output:/app/output
