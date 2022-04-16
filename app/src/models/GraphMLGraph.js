@@ -20,47 +20,53 @@ class GraphMLGraph {
       xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
       http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">`;
         const KEYS_FOR_YED = `<key for="node" id="d6" yfiles.type="nodegraphics"/>`;
-        const GRAPH_START = '  <graph id="G" edgedefault="undirected">';
+        const GRAPH_START = `
+        <graph id="G" edgedefault="undirected">`;
 
         return XML_HEADER + '\n' + GRAPHML_HEADER_YED + '\n' + `  ${KEYS_FOR_YED}\n` + GRAPH_START;
     }
 
     renderFooter() {
-        const FILE_FOOTER = '\n  </graph>\n</graphml>';
+        const FILE_FOOTER = `
+    </graph>
+</graphml>`;
 
 
         return FILE_FOOTER;
     }
 
-    renderNode(nodeId, nodeData) {
-        return `<node id="${nodeId}">
+    renderNode(nodeId, nodeData, nodeType) {
+        return `
+        <node id="${nodeId}">
             <data key="d6">
-              <y:ShapeNode>
-                <y:NodeLabel>${nodeData}</y:NodeLabel>
-              </y:ShapeNode>
+                <y:ShapeNode>
+                    <y:NodeLabel>${nodeData}</y:NodeLabel>
+                </y:ShapeNode>
             </data>
-          </node>`;
+            <data key="type">${nodeType}</data>
+        </node>\n`;
     }
 
     renderNodes() {
-        var renderedNodes = [];
+        var renderedNodes = '';
 
         this.nodes.forEach(node => {
-            renderedNodes.push(this.renderNode(node.getNodeIdentifier(), node.data));
+            renderedNodes += this.renderNode(node.getNodeIdentifier(), node.data, node.dataType);
         });
 
         return renderedNodes;
     }
 
     renderEdge(sourceId, targetId) {
-        return `<edge source="${sourceId}" target="${targetId}"/>`;
+        return `
+        <edge source="${sourceId}" target="${targetId}"/>`;
     }
 
     renderEdges() {
-        var renderedEdges = [];
+        var renderedEdges = '';
 
         this.edges.forEach(edge => {
-            renderedEdges.push(this.renderEdge(edge.sourceNode.getNodeIdentifier(), edge.targetNode.getNodeIdentifier()));
+            renderedEdges += this.renderEdge(edge.sourceNode.getNodeIdentifier(), edge.targetNode.getNodeIdentifier());
         });
 
         return renderedEdges;
