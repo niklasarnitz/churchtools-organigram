@@ -23,7 +23,7 @@ Open it in the Software yED and choose the Auto-Layout feature you want.
 ### Advanced Visualization
 For advanced automatic vizualisations one can use [Gephi](https://gephi.org/).
 To import the file to gephi, an additional step is necessary.
-To import the generated graph in gephi, just open the exported file in yED and export it to a `.ygf` file.
+To import the generated graph in gephi, just open the exported file in yED and export it to a `.gml` file.
 You can then import it into Gephi.
 
 ## Contributing
