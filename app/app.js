@@ -100,8 +100,9 @@ function traverseGroup(group, hierarchies, persons, relations) {
 
 	relations.filter(relation => relation.groupId === group.groupId).forEach(relation => {
 		var personData = persons.filter(person => person.id === relation.personId)[0];
-
-		groupObject.persons.push(new Person(personData.id, personData.firstName, personData.lastName));
+		if(personData != undefined){
+			groupObject.persons.push(new Person(personData.id, personData.firstName, personData.lastName));
+		}
 	});
 
 	return groupObject;
